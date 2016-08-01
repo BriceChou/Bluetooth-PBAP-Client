@@ -11,42 +11,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onEnableButtonClicked"
-        android:text="打开蓝牙" />
+        android:text="Open Bluetooth" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onDisableButtonClicked"
-        android:text="关闭蓝牙" />
+        android:text="Close Bluetooth" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMakeDiscoverableButtonClicked"
-        android:text="允许搜索" />
+        android:text="Visible to all" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onStartDiscoveryButtonClicked"
-        android:text="开始搜索" />
+        android:text="Devices in the area" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onOpenClientSocketButtonClicked"
-        android:text="添加客户端" />
+        android:text="Connect a device" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onOpenServerSocketButtonClicked"
-        android:text="服务器端" />
+        android:text="To be a server" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onOpenOBEXServerSocketButtonClicked"
-        android:text="OBEX服务器" />
+        android:text="Open OBEX server Socket" />
 
 </LinearLayout>

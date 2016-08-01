@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiscoveryActivity extends ListActivity {
-
     private Handler _handler = new Handler();
     private BluetoothAdapter _bluetooth = BluetoothAdapter.getDefaultAdapter();
     private List<BluetoothDevice> _devices = new ArrayList<BluetoothDevice>();
@@ -107,3 +106,4 @@ public class DiscoveryActivity extends ListActivity {
         finish();
     }
 }
+
