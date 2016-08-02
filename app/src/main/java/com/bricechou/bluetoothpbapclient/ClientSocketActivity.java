@@ -90,8 +90,9 @@ public class ClientSocketActivity extends Activity {
             baos.write((byte) 0x21);
 
             //
-            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p', 'b', '.', 'v', 'c', 'f'};//要转换的char数组
+            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p','b', '.', 'v', 'c', 'f'};//要转换的char数组
             String str = new String(cs);
+            // Only use Unicode encode
             byte[] bs = str.getBytes("Unicode");
             baos.write(bs);
 
@@ -100,8 +101,10 @@ public class ClientSocketActivity extends Activity {
             baos.write((byte) 0x12);
 
             char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'p', 'h', 'o', 'n', 'e', 'b', 'o', 'o', 'k'};//要转换的char数组
+            // char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'v', 'c', 'a', 'r', 'd'};//要转换的char数组
             String str2 = new String(cs2);
-            byte[] bs2 = str2.getBytes();
+            // Do not to change the encode.
+            byte[] bs2 = str2.getBytes(); // Do not add UTF-8 or Unicode
             baos.write(bs2);
 
             baos.write((byte) 0x00);
