@@ -22,7 +22,8 @@
         <activity android:name=".ClientSocketActivity" />
         <activity android:name=".DiscoveryActivity" />
         <activity android:name=".OBEXActivity" />
-        <activity android:name=".ServerSocketActivity"></activity>
+        <activity android:name=".ServerSocketActivity" />
+        <activity android:name=".SendPbapActivity"></activity>
     </application>
 
 </manifest>
