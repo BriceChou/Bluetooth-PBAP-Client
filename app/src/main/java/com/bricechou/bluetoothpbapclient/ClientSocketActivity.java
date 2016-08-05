@@ -91,8 +91,8 @@ public class ClientSocketActivity extends Activity {
             baos.write((byte) 0x00);
             baos.write((byte) 0x21);
 
-            //
-            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p', 'b', '.', 'v', 'c', 'f'};//要转换的char数组
+//            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p', 'b', '.', 'v', 'c', 'f'};//要转换的char数组
+            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/','p','b','/'};
             String str = new String(cs);
             // Only use Unicode encode
             byte[] bs = str.getBytes("Unicode");
@@ -102,39 +102,42 @@ public class ClientSocketActivity extends Activity {
             baos.write((byte) 0x00);
             baos.write((byte) 0x12);
 
-            char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'p', 'h', 'o', 'n', 'e', 'b', 'o', 'o', 'k'};//要转换的char数组
-            // char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'v', 'c', 'a', 'r', 'd'};//要转换的char数组
+//            char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'p', 'h', 'o', 'n', 'e', 'b', 'o', 'o', 'k'};//要转换的char数组
+//            char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'v', 'c', 'a', 'r', 'd'};
+//            char[] cs2 = new char[]{'t', 'e', 'x', 't', '/', 'x','-','v', 'C', 'a', 'r', 'd'};
+            char[] cs2 = new char[]{'x', '-', 'b', 't', '/', 'v', 'c', 'a', 'r', 'd','-', 'l','i', 's','t','i','n','g'};
             String str2 = new String(cs2);
             // Do not to change the encode.
             byte[] bs2 = str2.getBytes(); // Do not add UTF-8 or Unicode
             baos.write(bs2);
+            baos.write((byte) 0x00); //type name 结束
 
+            /*baos.write((byte) 0x4C); //app params
+            baos.write((byte) 0x00);//app params 的长度 高字节
+            baos.write((byte) 0x14);//app params 的长度 低字节
+
+            baos.write((byte) 0x06);// 此处为pbap自定义,表示vcardfilter
+            baos.write((byte) 0x08);// 8位
+
+            baos.write((byte) 0x00);// 64位掩码.需要的话请看spec.全为0,则返回所有的,不对vcard做任何过滤
+            baos.write((byte) 0x00);
+            baos.write((byte) 0x00);
+            baos.write((byte) 0x00);
+            baos.write((byte) 0x00);
+            baos.write((byte) 0x00);
+            baos.write((byte) 0x00);
             baos.write((byte) 0x00);
 
-            baos.write((byte) 0x4C);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x14);
-            baos.write((byte) 0x06);
-            baos.write((byte) 0x08);
+            baos.write((byte) 0x07); //  vcard 版本
+            baos.write((byte) 0x01);//  长度
+            baos.write((byte) 0x01);//  01= 3.1  00 = 2.0 vCard 2.1 or 3.0
 
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
-            baos.write((byte) 0x00);
 
-            baos.write((byte) 0x07);
-            baos.write((byte) 0x01);
-            baos.write((byte) 0x01);
+            baos.write((byte) 0x04);//maxlistcount 取多少个
+            baos.write((byte) 0x02);// 长度
 
-            baos.write((byte) 0x04);
-            baos.write((byte) 0x02);
-
-            baos.write((byte) 0xFF);
-            baos.write((byte) 0xFF);
+            baos.write((byte) 0xFF);// ffff表示取所有的.
+            baos.write((byte) 0xFF);*/
 
         } catch (IOException e) {
             Log.e(TAG, "", e);
