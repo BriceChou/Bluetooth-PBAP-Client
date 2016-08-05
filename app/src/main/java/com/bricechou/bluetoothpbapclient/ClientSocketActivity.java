@@ -15,6 +15,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 
 public class ClientSocketActivity extends Activity {
@@ -90,7 +92,7 @@ public class ClientSocketActivity extends Activity {
             baos.write((byte) 0x21);
 
             //
-            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p','b', '.', 'v', 'c', 'f'};//要转换的char数组
+            char[] cs = new char[]{'t', 'e', 'l', 'e', 'c', 'o', 'm', '/', 'p', 'b', '.', 'v', 'c', 'f'};//要转换的char数组
             String str = new String(cs);
             // Only use Unicode encode
             byte[] bs = str.getBytes("Unicode");
@@ -216,12 +218,26 @@ public class ClientSocketActivity extends Activity {
             os.flush();
             Log.i(TAG, "First send OVER.");
 
-            ByteArrayOutputStream baosG = getVcard();
-            byte[] bookDownloadReq = baosG.toByteArray();
-            Log.i(TAG, "Second send datas = " + ConvertByteUtils.bytesToHexString(bookDownloadReq));
-            os.write(bookDownloadReq);
-            os.flush();
-            Log.i(TAG, "Second send OVER.");
+            final BluetoothSocket tempSocket = socket;
+            TimerTask task = new TimerTask() {
+                public void run() {
+                    //execute the task
+                    try {
+                        OutputStream os = tempSocket.getOutputStream();
+                        ByteArrayOutputStream baosG = getVcard();
+                        byte[] bookDownloadReq = baosG.toByteArray();
+                        Log.i(TAG, "Second send datas = " + ConvertByteUtils.bytesToHexString(bookDownloadReq));
+                        os.write(bookDownloadReq);
+                        os.flush();
+                        Log.i(TAG, "Second send OVER.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            Timer timer = new Timer();
+            timer.schedule(task, 5000);
+
 
             InputStream is = socket.getInputStream();
             ByteArrayOutputStream baosR = new ByteArrayOutputStream();
