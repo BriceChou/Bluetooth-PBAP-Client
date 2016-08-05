@@ -13,6 +13,10 @@
   
   * OBEX Core Article ： http://blog.csdn.net/luohsh1/article/details/7236713
   * Ohers : http://blog.sina.com.cn/s/blog_69b5d2a50101ekz5.html
+            
+  * Rapid test : http://blog.csdn.net/dxdxsmy/article/details/8736809
+                 http://www.fte.com/products/FTS4BT.aspx
+            
   * Some question being discussed ：http://bbs.csdn.net/topics/390364293
  
 ## END
